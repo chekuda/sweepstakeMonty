@@ -1,0 +1,9 @@
+.nav-component{
+  justify-content: center;
+}
+.nav-item {
+  cursor: pointer;
+}
+.nav-item .active{
+  background-color: #c7e4fb;
+}

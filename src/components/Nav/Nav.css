@@ -1,0 +1,10 @@
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+  background: transparent;
+}
+.dropdown-toggle.nav-link::after{
+  display: none;
+}
+.burgermenu {
+  width: 30px;
+  background: url("https://use.fontawesome.com/releases/v5.0.13/svgs/solid/bars.svg")
+}
