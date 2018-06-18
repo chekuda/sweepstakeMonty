@@ -1,40 +1,54 @@
-import React from 'react'
-import { Nav, NavItem, Dropdown, DropdownItem, DropdownToggle, DropdownMenu, NavLink } from 'reactstrap'
-import burgerMenu from '../../burgermenu.png'
+import React, { Component, Fragment } from 'react'
+import {
+  Collapse,
+  Navbar,
+  NavbarToggler,
+  NavbarBrand,
+  Nav,
+  NavItem,
+  NavLink } from 'reactstrap'
 
 import './Nav.css'
+
 
 export default class Example extends React.Component {
   constructor(props) {
     super(props);
 
-    this.toggle = this.toggle.bind(this);
     this.state = {
-      dropdownOpen: false
-    };
+      isOpen: false
+    }
   }
-
   toggle = () => {
     this.setState({
-      dropdownOpen: !this.state.dropdownOpen
-    });
+      isOpen: !this.state.isOpen
+    })
   }
 
+  setActiveClass(currentTab) {
+    return this.props.contentType === currentTab ? 'active': ''
+  }
   render() {
     return (
-      <div>
-        <Nav pills>
-          <Dropdown nav isOpen={this.state.dropdownOpen} toggle={this.toggle}>
-            <DropdownToggle nav caret>
-              <i className="burgermenu"></i>
-            </DropdownToggle>
-            <DropdownMenu>
-              <DropdownItem header>Header</DropdownItem>
-              <DropdownItem>Another Action</DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
-        </Nav>
-      </div>
-    );
+      <div className="top-nav-bar">
+      <Navbar color="light" light expand="md">
+        <NavbarBrand href="/">Sweepstake2018</NavbarBrand>
+        <NavbarToggler onClick={this.toggle} />
+        <Collapse isOpen={this.state.isOpen} navbar>
+          <Nav className="ml-auto" navbar>
+            <NavItem>
+              <NavLink className={this.setActiveClass('allbets')} onClick={() => this.props.setContent('allbets')}>AllBets</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink  className={this.setActiveClass('results')} onClick={() => this.props.setContent('results')}>Results</NavLink>
+            </NavItem>
+            <NavItem>
+              <NavLink  className={this.setActiveClass('calification')} onClick={() => this.props.setContent('calification')}>Calification</NavLink>
+            </NavItem>
+          </Nav>
+        </Collapse>
+      </Navbar>
+    </div>
+    )
   }
 }

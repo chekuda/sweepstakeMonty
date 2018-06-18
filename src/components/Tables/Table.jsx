@@ -20,7 +20,7 @@ export default class Example extends Component {
             (this.props.values || []).map((val, index) => {
               return (
                 <tr key={index}>
-                  <th scope="row">{index}</th>
+                  <th scope="row">{index + 1}</th>
                   {
                     val.map((ele, i) => <td key={i}>{ele}</td>)
                   }

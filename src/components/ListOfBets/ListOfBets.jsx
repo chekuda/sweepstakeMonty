@@ -3,7 +3,7 @@ import { TabContent, TabPane, Nav, NavItem, NavLink, Card, Button, CardTitle, Ca
 import classnames from 'classnames'
 import Tables from '../Tables/Table'
 
-import './Navigator.css'
+import './ListOfBets.css'
 
 export default class Navigator extends Component {
   constructor(props) {

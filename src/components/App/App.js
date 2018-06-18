@@ -1,71 +1,57 @@
 import React, { Component } from 'react';
 
-import Tables from '../Tables/Table'
-import bets from '../../allBets/bets'
-import results from '../../results/results'
-import Navigator from '../Navigator/Navigator'
+import ListOfBets from '../ListOfBets/ListOfBets'
+import Results from '../Results/Results'
 import Nav from '../Nav/Nav'
+import Calification from '../Calification/Calification'
 import './App.css'
-
-const SPECIALCHARS = {
-  ['á']: 'a',
-  ['é']: 'e',
-  ['í']: 'i',
-  ['ó']: 'o',
-  ['ú']: 'u',
-  ['ñ']: 'n'
-  }
 
 class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      users: []
+      users: [],
+      isOpen: false,
+      contentType: 'calification'
     }
   }
 
-
-  // RESULTS.reduce((acc, result) => {
-  //   return acc.concat(ALLUSERS.map(user => bets.find(bet => bet.includes(result[0], result[3]))))
-  // }, [])
-
-  getCalification(allUsers){
-    window.ALLUSERS = allUsers
-  }
-
-  componentDidMount() {
-    const allUsers = bets().reduce((acc, ele) => {
-      return acc.concat({
-        user: ele.user,
-        bets: ele.bets.map(bet => this.cleanUpSpecialChars(bet))
-      })
-    }, [])
-
-    this.getCalification(allUsers)
-
+  saveBets = (data) => {
+    window.BETS = data
     this.setState({
-      users: allUsers
+      users: data
     })
   }
 
-  cleanUpSpecialChars(user){
-    return user.map(ele =>
-        typeof ele === 'string'
-          ? ele.replace(/[á|é|í|ó|ú|ñ]/g, (m) => SPECIALCHARS[m]).replace(/ /g, '').toLocaleLowerCase()
-          : ele)
+  getUserResults(){
+    fetch('http://localhost:5000/api/getbets')
+    .then(res => res.json())
+    .then(data => this.saveBets(data))
   }
+
+  componentDidMount() {
+    this.getUserResults()
+  }
+
+  setContent = (contentType) => {
+    this.setState({
+      contentType: contentType
+    })
+  }
+
   render() {
-    console.log(this.state.users)
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">SweepStake 2018</h1>
-          {
-            this.state.calification &&
-            <Tables values={this.state.calification}/>
-          }
-        </header>
-        <Navigator users={this.state.users}/>
+        <Nav contentType={this.state.contentType} setContent={this.setContent}/>
+        {
+          this.state.contentType === 'allbets' && <ListOfBets users={this.state.users}/>
+        }
+        {
+          this.state.contentType === 'results' && <Results />
+        }
+        {
+          this.state.contentType === 'calification' && <Calification users={this.state.users}/>
+        }
       </div>
     );
   }
