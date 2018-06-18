@@ -21,7 +21,9 @@ class Results extends Component {
   }
 
   getMatches(){
-    fetch('http://localhost:5000/api/results')
+    const apiRequest = process.env.REACT_APP_PROD ? '/api/getbets' : 'http://localhost:5000/api/results'
+
+    fetch(apiRequest)
     .then(res => res.json())
     .then(data => this.saveResults(data))
   }

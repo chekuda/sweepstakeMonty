@@ -17,14 +17,15 @@ class App extends Component {
   }
 
   saveBets = (data) => {
-    window.BETS = data
     this.setState({
       users: data
     })
   }
 
   getUserResults(){
-    fetch('http://localhost:5000/api/getbets')
+    const apiRequest = process.env.REACT_APP_PROD ? '/api/getbets' : 'http://localhost:5000/api/getbets'
+
+    fetch(apiRequest)
     .then(res => res.json())
     .then(data => this.saveBets(data))
   }
