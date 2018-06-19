@@ -1,6 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 
 import Tables from '../Tables/Table'
+import SearchBar from '../SearchBar/SearchBar'
 
 import './Results.css'
 
@@ -8,7 +9,7 @@ class Results extends Component {
   constructor(props){
     super(props)
     this.state = {
-      results: []
+      results: [],
     }
   }
 
@@ -16,7 +17,8 @@ class Results extends Component {
     const allResults = (matches.msg || []).map(match => match.total)
 
     this.setState({
-      results: allResults
+      results: allResults,
+      resultToShow: allResults
     })
   }
 
@@ -32,8 +34,20 @@ class Results extends Component {
     this.getMatches()
   }
 
+  onSearchTermChange = (filter) => {
+    const newUserBets = this.state.results.filter(bet => bet.join('.').includes(filter))
+    this.setState({
+      resultToShow: newUserBets
+    })
+  }
+
   render() {
-    return <Tables values={this.state.results}/>
+    return (
+      <Fragment>
+        <SearchBar onSearchTermChange={this.onSearchTermChange} />
+        <Tables values={this.state.resultToShow}/>
+      </Fragment>
+    )
   }
 }
 
