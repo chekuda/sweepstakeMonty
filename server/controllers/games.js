@@ -66,7 +66,7 @@ exports.updateResults = async (req, res) => {
   try {
     allBets = await Users.find()
     userUpdatedPoints = allBets.reduce((acc, data) => {
-    const userResult = data.bets.find(bet => bet.includes(newGame.teams[0], newGame.teams[1]))
+    const userResult = data.bets.find(bet => bet.includes(req.body.teams[0]) && bet.includes(req.body.teams[1]))
 
       return acc.concat({
         user: data.user,
