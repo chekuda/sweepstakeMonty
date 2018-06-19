@@ -1,0 +1,23 @@
+.header {
+  text-align: center;
+  font-size: 30px;
+  height: 100px;
+  padding-top: 20px;
+  background-color: blue;
+  color: white;
+}
+.content {
+  display: flex;
+}
+
+.blockTeam {
+  width: 50%;
+  text-align: center;
+}
+.label-name {
+  display: block;
+}
+.send-info {
+  text-align: center;
+  margin: 30px;
+}

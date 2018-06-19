@@ -40,14 +40,16 @@ exports.updateResults = async (req, res) => {
   }
 
   try {
-    checkifExist = await Games.find({ teams: req.body.teams })
+    checkifExist = await Promise.all([Games.find({ teams: req.body.teams }), Games.find({ teams: [req.body.teams[1],req.body.teams[0]] })])
 
-    if(checkifExist.length > 0) {
-      return res.send({ msg: 'Game Already Inserted' })
+    if(checkifExist.some(ele => ele.length)) {
+      return res.send({ msg: 'Game already inserted', success: false })
     }
   } catch (err) {
+    console.log(err)
     return res.status(401).send({ msg: err })
   }
+
 
   try {
     newGame = Games({
@@ -87,5 +89,5 @@ exports.updateResults = async (req, res) => {
     return res.status(401).send({ msg: { gameSaved, err: 'Game saved but user not updated' } })
   }
 
-  res.send({ sucess: true, msg: userUpdatedPoints })
+  res.send({ success: true, msg: userUpdatedPoints })
 }
