@@ -3,7 +3,6 @@ import {
   Collapse,
   Navbar,
   NavbarToggler,
-  NavbarBrand,
   Nav,
   NavItem,
   NavLink } from 'reactstrap'
@@ -28,11 +27,21 @@ export default class Example extends React.Component {
   setActiveClass(currentTab) {
     return this.props.contentType === currentTab ? 'active': ''
   }
+
+  setTime() {
+    const { updated } = this.props
+    const date = new Date(updated)
+
+    return `${date.toLocaleDateString()} at ${date.toLocaleTimeString()}`
+  }
   render() {
     return (
       <div className="top-nav-bar">
       <Navbar color="light" light expand="md">
-        <NavbarBrand href="/">Sweepstake2018</NavbarBrand>
+        <div className="logo">
+          SweepstakeMCB
+          { this.props.updated && <span className="underlined">Updated {this.setTime()}</span> }
+        </div>
         <NavbarToggler onClick={this.toggle} />
         <Collapse isOpen={this.state.isOpen} navbar>
           <Nav className="ml-auto" navbar>

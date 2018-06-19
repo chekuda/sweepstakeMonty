@@ -17,8 +17,10 @@ class App extends Component {
   }
 
   saveBets = (data) => {
+    console.log(data)
     this.setState({
-      users: data
+      users: data,
+      updated: data[0].updated
     })
   }
 
@@ -43,7 +45,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Nav contentType={this.state.contentType} setContent={this.setContent}/>
+        <Nav contentType={this.state.contentType} setContent={this.setContent} updated={this.state.updated}/>
         {
           this.state.contentType === 'allbets' && <ListOfBets users={this.state.users}/>
         }

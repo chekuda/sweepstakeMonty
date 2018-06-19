@@ -80,9 +80,9 @@ exports.updateResults = async (req, res) => {
   }
 
   try {
-    await Promise.all(userUpdatedPoints.map(user =>
-      Users.update({ user: user.user }, { $inc: { points: user.points } })
-      )
+    await Promise.all(userUpdatedPoints
+      .map(user => Users.update({ user: user.user }, { $inc: { points: user.points } }))
+      .concat(allBets.map(user => Users.update({ user: user.user }, { updated: new Date() })))
     )
 
   } catch (err) {
