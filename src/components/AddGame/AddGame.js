@@ -9,8 +9,8 @@ class Results extends Component {
     this.state = {
       teams: ['', ''],
       score: ['', ''],
-      listOfTeams: ["Russia", "Egypt", "Uruguay", "Saudi Arabia", "Portugal", "Morocco", "Iran", "Spain", "France", "Peru", "Denmark", "Australia", "Argentina", "Croatia", "Nigeria", "Iceland", "Brazil", "Costa Rica", "Serbia", "Switzerland", "Germany", "Sweden", "South Korea", "México", "Belgium", "Tunisia", "England", "Panama", "Poland", "Colombia", "Japan", "Senegal"],
-      listOfGoals: [1,2,3,4,5,6,7,8,9,10]
+      listOfTeams: ["Argentina", "Australia", "Belgium", "Brazil", "Colombia", "Costa Rica", "Croatia", "Denmark", "Egypt", "England", "France", "Germany", "Iceland", "Iran", "Japan", "Morocco", "México", "Nigeria", "Panama", "Peru", "Poland", "Portugal", "Russia", "Saudi Arabia", "Senegal", "Serbia", "South Korea", "Spain", "Sweden", "Switzerland", "Tunisia", "Uruguay"],
+      listOfGoals: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
     }
   }
 
