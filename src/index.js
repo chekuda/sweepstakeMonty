@@ -5,11 +5,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import './index.css';
 import App from './components/App/App';
 import AddGame from './components/AddGame/AddGame';
+import AddQualified from './components/AddQualified/AddQualified';
 import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
 <BrowserRouter>
   <Switch>
+    <Route path='/addqualified' component={ AddQualified }/>
     <Route path='/addgame' component={ AddGame }/>
     <Route path='/' component={ App }/>
   </Switch>

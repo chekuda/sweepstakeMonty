@@ -1,0 +1,221 @@
+const allBets = () => {
+  return [
+    {
+      user: 'Jose',
+      gSixteen: ['Argentina', 'Australia', 'Belgium', 'Brazil', 'Colombia', 'Costa Rica', 'Croatia', 'Egypt', 'England', 'France', 'Germany', 'Japan', 'Portugal', 'South Korea', 'Spain', 'Uruguay'],
+      qFinal: ["Uruguay", "Brazil", "Spain", "Germany", "France", "Belgium", "Argentina", "Colombia"],
+      semifinals: ["Spain", "France", "Belgium", "Germany"],
+      final: ["France", "Spain"],
+      winner: "Spain",
+      bestPlayer: "Messi",
+      goldenBoot: "Griezman"
+    },
+    {
+      user: 'Luke',
+      gSixteen: [
+        "Uruguay",
+        "France",
+        "Spain",
+        "Argentina",
+        "Brazil",
+        "England",
+        "Germany",
+        "Colombia",
+        "Portugal",
+        "Croatia",
+        "Egypt",
+        "Peru",
+        "México",
+        "Senegal",
+        "Serbia",
+        "Belgium"
+      ],
+      qFinal: [
+        "Uruguay",
+        "Brazil",
+        "Spain",
+        "Germany",
+        "France",
+        "England",
+        "Argentina",
+        "Colombia"
+        ],
+      semifinals: [
+        "Brazil",
+        "Germany",
+        "France",
+        "Argentina",
+        ],
+      final: ["Brazil", "Germany"],
+      winner: "Brazil",
+      bestPlayer: "Neymar",
+      goldenBoot: "Timo Werner"
+    },
+    {
+      user: 'Billy',
+      gSixteen: [
+        "Uruguay",
+        "France",
+        "Portugal",
+        "Argentina",
+        "Brazil",
+        "Belgium",
+        "Germany",
+        "Colombia",
+        "Spain",
+        "Croatia",
+        "Egypt",
+        "Denmark",
+        "México",
+        "Senegal",
+        "Costa Rica",
+        "England"
+        ],
+      qFinal: [
+        "Spain",
+        "Brazil",
+        "Portugal",
+        "Germany",
+        "France",
+        "Belgium",
+        "Argentina",
+        "England"
+        ],
+      semifinals: [
+        "Brazil",
+        "Germany",
+        "France",
+        "Argentina",
+        ],
+      final: ["Brazil", "Germany"],
+      winner: "Brazil",
+      goldenBoot: "Timo Werner",
+      bestPlayer: "Messi"
+    },
+    {
+      user: 'Adam',
+      gSixteen: [
+        "Uruguay",
+        "France",
+        "Spain",
+        "Argentina",
+        "Brazil",
+        "Belgium",
+        "Germany",
+        "Poland",
+        "Portugal",
+        "Croatia",
+        "Russia",
+        "Denmark",
+        "México",
+        "Colombia",
+        "Costa Rica",
+        "England"
+        ],
+      qFinal: [
+        "Portugal",
+        "Brazil",
+        "Spain",
+        "Germany",
+        "France",
+        "Belgium",
+        "Argentina",
+        "England"
+        ],
+      semifinals: [
+        "Spain",
+        "France",
+        "Germany",
+        "Belgium",
+        ],
+      final: ["France", "Germany"],
+      winner: "France",
+      goldenBoot: "Timo Werner",
+      bestPlayer: "Mbappe"
+    },
+    {
+      user: 'Joel',
+      gSixteen: [
+        "Russia",
+        "France",
+        "Spain",
+        "Argentina",
+        "Brazil",
+        "Belgium",
+        "Germany",
+        "Colombia",
+        "Portugal",
+        "Croatia",
+        "Uruguay",
+        "Denmark",
+        "South Korea",
+        "Poland",
+        "Serbia",
+        "England"
+        ],
+      qFinal: [
+        "Portugal",
+        "Brazil",
+        "Spain",
+        "Germany",
+        "France",
+        "Belgium",
+        "Argentina",
+        "England"
+        ],
+      semifinals: [
+        "Argentina",
+        "France",
+        "Brazil",
+        "England",
+        ],
+      final: ["France", "Argentina"],
+      winner: "France",
+      goldenBoot: "Neymar",
+      bestPlayer: "Griezman"
+    },
+    {
+      user: 'Olu',
+      gSixteen: [
+        "Uruguay",
+        "France",
+        "Portugal",
+        "Argentina",
+        "Brazil",
+        "Belgium",
+        "Germany",
+        "Senegal",
+        "Spain",
+        "Nigeria",
+        "Egypt",
+        "Peru",
+        "México",
+        "Japan",
+        "Serbia",
+        "England"
+        ],
+      qFinal: [
+        "Uruguay",
+        "Bra`il",
+        "Portugal",
+        "Germany",
+        "France",
+        "Belgium",
+        "Argentina",
+        "Senegal"
+        ],
+      semifinals: [
+        "Belgium",
+        "France",
+        "Germany",
+        "Portugal",
+        ],
+      final: ["France", "Germany"],
+      winner: "France",
+      goldenBoot: "Griezman",
+      bestPlayer: "Neymar"
+    },
+  ]
+}
+
+module.exports = allBets

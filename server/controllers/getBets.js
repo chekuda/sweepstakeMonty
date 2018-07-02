@@ -1,4 +1,5 @@
 const Users = require('../models/users')
+const allBets = require('../allbets')()
 
 exports.getBets = async (req, res) => {
 
@@ -73,4 +74,28 @@ exports.saveUser = async (req, res) => {
     return res.status(401).send('ERROR')
   }
   res.send(newBets)
+}
+
+exports.updateUser = async (req, res) => {
+  let userUpdated = null
+  try {
+    userUpdated = await Promise.all(allBets.map(user =>
+      Users.update(
+        { user: user.user },
+        {
+          gSixteen: user.gSixteen,
+          qFinal: user.qFinal,
+          semifinals: user.semifinals,
+          final: user.final,
+          winner: user.winner,
+          bestPlayer: user.bestPlayer,
+          goldenBoot: user.goldenBoot
+        }
+      )
+    ))
+  } catch (err) {
+    console.log(err)
+    return res.status(401).send('ERROR')
+  }
+  res.send(userUpdated)
 }
