@@ -84,7 +84,7 @@ exports.updateQualified = async (req, res) => {
 }
 
 exports.getQualified = async (req, res) => {
-  let qualified = null
+  let qualified = []
 
   if(!req.body.year) {
     return res.send({ sucess: false, msg: 'No Right year' })
@@ -96,5 +96,5 @@ exports.getQualified = async (req, res) => {
     return res.status(401).send({ msg: 'Game not saved' })
   }
 
-  res.send({ success: true, msg: qualified[0] })
+  res.send({ success: true, msg: qualified[0] || qualified })
 }
