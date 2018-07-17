@@ -102,6 +102,8 @@ class AddQualified extends Component {
     const backUpData = this.state.dataRetrieved[backUpSection]
 
     if(data && data.length > 0){
+      if(section === 'winner') return [data]
+
       return data
     } else if(backUpData && backUpData.length > 0){
       return backUpData

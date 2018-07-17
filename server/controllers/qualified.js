@@ -4,7 +4,7 @@ const Users = require('../models/users')
 const POINTS = {
   gSixteen: 1,
   qFinal: 3,
-  semifinal: 5,
+  semifinals: 5,
   final: 5,
   winner: 5,
   bestPlayer: 5,
@@ -56,6 +56,7 @@ exports.updateQualified = async (req, res) => {
   try {
     await Promise.all(allBets.map(user => {
       const totalToSum = updatePoints(user, data, round)
+
       userUpdated.push({user: user.user, oldPoints: user.points, updated: (user.points || 0)  + totalToSum  })
       return Users.update(
         { user: user.user },
@@ -66,6 +67,7 @@ exports.updateQualified = async (req, res) => {
       )
     }))
   } catch(e) {
+    console.log(e)
     return res.send({ sucess: false, msg: 'Coundlt update points' })
   }
 
